@@ -2,13 +2,16 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prototype AR</title>
+        <!-- Add A-Frame and AR.js libraries -->
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <!-- Add gesture detector and handler scripts -->
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
-
     <body style="margin: 0; overflow: hidden;">
+        <!-- Add A-Frame scene -->
         <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
@@ -17,6 +20,7 @@
             embedded
             gesture-detector
         >
+            <!-- Add marker -->
             <a-marker
                 id="animated-marker"
                 type="pattern"
@@ -27,15 +31,50 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
+                <!-- Add text element -->
+                <a-text value="Prototype AR"
+                    gesture-detector
+                    color="yellow"
+                    position="0 30 0"
+                    rotation="-90 0 0"
+                    scale="5 5 5"
+                    font="https://cdn.aframe.io/fonts/Roboto-msdf.json">
+                </a-text>
+
+                <!-- Add image element -->
                 <a-image
                     src="assets/asset.png"
-                    scale="1 1 1"
+                    scale="3 1 1"
                     class="clickable"
-                    rotation="-90 0 0"
+                    rotation="-180 0 0"
                     gesture-handler
-                ></a-image>
+                    animation="property: rotation; to: 0 180 0; loop: true; easing: linear"
+                >
+                </a-image>
+
+                <!-- Add sphere elements -->
+                <a-sphere position="1.5" color="blue" radius ="0.15" gesture-handler>
+                    <a-animation
+                        attribute="color"
+                        dur="10000"
+                        from="blue"
+                        to="orange"
+                        repeat="indefinite">
+                    </a-animation>
+                </a-sphere>
+                
+                <a-sphere position="-1.5" color="red" radius ="0.15" gesture-handler>
+                    <a-animation
+                        attribute=" color"
+                        dur="10000"
+                        from="red"
+                        to="green"
+                        repeat="indefinite">
+                    </a-animation>
+                </a-sphere>
             </a-marker>
 
+            <!-- Add camera entity -->
             <a-entity camera></a-entity>
         </a-scene>
     </body>
