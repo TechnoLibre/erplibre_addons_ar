@@ -136,3 +136,32 @@ To view the AR scene, you need to add a camera entity to the <a-scene> element. 
 Step 6: Add gesture detection and handling
   
 To enable gesture detection and handling in the AR scene, you need to include the gesture detector and handler scripts. These scripts are included using two <script> elements that link to the gesture-detector.js and gesture-handler.js files respectively. Additionally, the <a-scene> element has a gesture-detector attribute that enables gesture detection and a gesture-handler attribute that enables gesture handling.
+
+
+
+## Ar.js Code Generator
+### All of the images are located in the Word document, so you can follow the generator tutorial step-by-step
+
+Step 1: Go to the following link: https://ar-js-org.github.io/AR.js-Docs/
+
+Step 2: Choose the "Marker-based" option and click on "Start Building."
+ 
+Step 3: Upload an image of the marker you want to use, and make sure to download it for future reference.
+ 
+Step 4: Choose the content that you want your marker to display.
+ 
+Step 5: Download the package. 
+
+Step 6: Export your project to GitHub so that you can use it on other platforms with GitHub Pages. Make sure that the main HTML file is named "index.html." 
+
+Step 7: Go to "Settings" in the top right of the repository.
+ 
+Step 8: Click on the "Pages" tab.
+ 
+Step 9: Choose the main branch in the branch options and click on "Save."
+ 
+Step 10: Choose a custom domain name and click on "Save."
+ 
+Step 11: Click on the generated link to access the website.
+ 
+Step 12: Log in to GitHub from other platforms and navigate to the generated link above. Display the downloaded marker in front of your camera to see the results.
