@@ -130,7 +130,7 @@ Step 5: Add a camera
   
 To view the AR scene, you need to add a camera entity to the <a-scene> element. This can be done using the <a-entity> element with the camera attribute:
 
-<a-entity camera></a-entity>
+            <a-entity camera></a-entity>
 
 
 Step 6: Add gesture detection and handling
