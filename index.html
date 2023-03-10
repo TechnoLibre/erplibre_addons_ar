@@ -1,8 +1,11 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prototype AR</title>
+        <link rel="stylesheet" href="/style.css">
+        <script src="/script.js"></script>
         <!-- Add A-Frame and AR.js libraries -->
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
@@ -10,7 +13,7 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
-    <body style="margin: 0; overflow: hidden;">
+    <body>
         <!-- Add A-Frame scene -->
         <a-scene
             vr-mode-ui="enabled: false;"
