@@ -1,29 +1,42 @@
+<!-- This declares that this is an HTML document -->
 <!DOCTYPE html>
+<!-- This is the start of the HTML document -->
 <html>
   <head>
+    <!-- This sets the character encoding and viewport for the page -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This sets the title of the page -->
     <title>Red to Green Camera Filter</title>
+    <!-- This links the CSS stylesheet to the HTML document -->
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
+    <!-- This is the header of the page -->
     <h1 style="font-size: 48px; margin-top: 50px;">Red to Green Camera Filter</h1>
     <div>
+      <!-- This creates a table with two columns -->
       <table>
         <tr>
+          <!-- This is the first column of the table -->
           <td>
             <h2>Normal Camera</h2>
+            <!-- This creates a video container that will hold the camera feed -->
             <div id="video-container">
               <video id="video" autoplay></video>
             </div>
           </td>
+          <!-- This is the second column of the table -->
           <td>
             <h2>Inverted Red to Green Camera Filter</h2>
+            <!-- This creates a canvas that will hold the inverted red-to-green filtered video feed -->
             <canvas id="canvas"></canvas>
           </td>
         </tr>
       </table>
     </div>
+    <!-- This links the JavaScript file to the HTML document -->
     <script src="/script.js"></script>
   </body>
+<!-- This ends the HTML document -->
 </html>
