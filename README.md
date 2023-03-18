@@ -36,11 +36,18 @@ To create an augmented reality scene, you'll need to have a web page with the A-
                 <!DOCTYPE html>
                 <html>
                   <head>
-                    <meta charset="UTF-8">
-                    <title>AR Scene</title>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-                    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+                      <meta charset="UTF-8">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <title>Prototype AR</title>
+                      <link rel="stylesheet" href="/style.css">
+                      <!-- Add A-Frame and AR.js libraries -->
+                      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+                      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+                      <!-- Add gesture detector and handler scripts -->
+                      <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+                      <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+                      <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex.js"></script>
+                      <script src="/script.js"></script>
                   </head>
                   <body>
                     <!-- Add a canvas element to apply the red-to-green camera filter -->
@@ -141,35 +148,6 @@ Step 6: Add gesture detection and handling
 To enable gesture detection and handling in the AR scene, you need to include the gesture detector and handler scripts. These scripts are included using two <script> elements that link to the gesture-detector.js and gesture-handler.js files respectively. Additionally, the <a-scene> element has a gesture-detector attribute that enables gesture detection and a gesture-handler attribute that enables gesture handling.
 
 
-
-## Ar.js Code Generator
-### All of the images are located in the Word document, so you can follow the generator tutorial step-by-step
-
-Step 1: Go to the following link: https://ar-js-org.github.io/AR.js-Docs/
-
-Step 2: Choose the "Marker-based" option and click on "Start Building."
- 
-Step 3: Upload an image of the marker you want to use, and make sure to download it for future reference.
- 
-Step 4: Choose the content that you want your marker to display.
- 
-Step 5: Download the package. 
-
-Step 6: Export your project to GitHub so that you can use it on other platforms with GitHub Pages. Make sure that the main HTML file is named "index.html." 
-
-Step 7: Go to "Settings" in the top right of the repository.
- 
-Step 8: Click on the "Pages" tab.
- 
-Step 9: Choose the main branch in the branch options and click on "Save."
- 
-Step 10: Choose a custom domain name and click on "Save."
- 
-Step 11: Click on the generated link to access the website.
- 
-Step 12: Log in to GitHub from other platforms and navigate to the generated link above. Display the downloaded marker in front of your camera to see the results.
-
-
 ## Red to Green Camera Filter
 ### Here is the JavaScript code that applies a red-to-green filter to the camera feed
 
@@ -234,5 +212,32 @@ Step 12: Log in to GitHub from other platforms and navigate to the generated lin
                 // Request the browser to call the updateCanvas function on the next animation frame
                 requestAnimationFrame(() => updateCanvas(video));
               }
-            });
+            });  
+  
 
+## Ar.js Code Generator
+### All of the images are located in the Word document, so you can follow the generator tutorial step-by-step
+
+Step 1: Go to the following link: https://ar-js-org.github.io/AR.js-Docs/
+
+Step 2: Choose the "Marker-based" option and click on "Start Building."
+ 
+Step 3: Upload an image of the marker you want to use, and make sure to download it for future reference.
+ 
+Step 4: Choose the content that you want your marker to display.
+ 
+Step 5: Download the package. 
+
+Step 6: Export your project to GitHub so that you can use it on other platforms with GitHub Pages. Make sure that the main HTML file is named "index.html." 
+
+Step 7: Go to "Settings" in the top right of the repository.
+ 
+Step 8: Click on the "Pages" tab.
+ 
+Step 9: Choose the main branch in the branch options and click on "Save."
+ 
+Step 10: Choose a custom domain name and click on "Save."
+ 
+Step 11: Click on the generated link to access the website.
+ 
+Step 12: Log in to GitHub from other platforms and navigate to the generated link above. Display the downloaded marker in front of your camera to see the results.
