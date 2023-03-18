@@ -1,57 +1,62 @@
-// Get references to the video element, canvas element, and canvas context
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+// Add event listener to run the function when the DOM content is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the canvas element and its 2D context
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
 
-// Check if the browser supports getUserMedia and video capture
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  // Request access to the user's camera and start the video stream
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function(stream) {
-      video.srcObject = stream;
-      video.play();
-    });
-}
-
-// Define a function to apply the green screen filter to the video stream
-function greenScreen() {
-  // Set the canvas dimensions to match the video stream
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-
-  // Flip the image horizontally
-  context.translate(canvas.width, 0);
-  context.scale(-1, 1);
-
-  // Draw the current video frame to the canvas (flipped horizontally)
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-  // Flip the image back to its original orientation
-  context.setTransform(1, 0, 0, 1, 0, 0);
-
-  // Get the pixel data from the canvas
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data;
-
-  // Loop through every pixel in the pixel data array
-  for (let i = 0; i < data.length; i += 4) {
-    // Get the red, green, and blue components of the current pixel
-    const red = data[i];
-    const green = data[i + 1];
-    const blue = data[i + 2];
-
-    // Check if the current pixel is a bright shade of red
-    if (red > 150 && green < 100 && blue < 100) {
-      // If the pixel is red, set it to green
-      data[i] = 0; // Set red channel to 0
-      data[i + 1] = 255; // Set green channel to 255
-      data[i + 2] = 0; // Set blue channel to 0
-    }
+  // Check if the browser supports mediaDevices and getUserMedia
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Request access to the user's webcam
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function(stream) {
+        // Create a video element and set its source to the webcam stream
+        const video = document.createElement('video');
+        video.srcObject = stream;
+        video.play();
+        // Call updateCanvas function with the video element
+        updateCanvas(video);
+      });
   }
 
-  // Put the modified pixel data back onto the canvas
-  context.putImageData(imageData, 0, 0);
-}
+  // Function to update the canvas with the video feed and apply the filter
+  function updateCanvas(video) {
+    // Set the canvas dimensions to match the window dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-// Apply the green screen filter every 50 milliseconds
-setInterval(greenScreen, 50);
+    // Check if the video has enough data to be displayed
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+      // Draw the video frame on the canvas
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      // Get the image data from the canvas
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+
+      // Iterate through the image data (RGBA values)
+      for (let i = 0; i < data.length; i += 4) {
+        // Get the red, green, and blue values of the current pixel
+        const red = data[i];
+        const green = data[i + 1];
+        const blue = data[i + 2];
+
+        // Set the threshold for detecting red color
+        const threshold = 65;
+
+        // Check if the red value is greater than the green and blue values by the threshold
+        if (red > green + threshold && red > blue + threshold) {
+          // Change the pixel color to green (R=0, G=255, B=0)
+          data[i] = 0;
+          data[i + 1] = 255;
+          data[i + 2] = 0;
+        }
+      }
+
+      // Put the modified image data back on the canvas
+      context.putImageData(imageData, 0, 0);
+    }
+
+    // Request the browser to call the updateCanvas function on the next animation frame
+    requestAnimationFrame(() => updateCanvas(video));
+  }
+});
