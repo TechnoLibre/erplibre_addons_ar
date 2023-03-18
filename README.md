@@ -43,6 +43,9 @@ To create an augmented reality scene, you'll need to have a web page with the A-
                     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
                   </head>
                   <body>
+                    <!-- Add a canvas element to apply the red-to-green camera filter -->
+                    <canvas id="canvas"></canvas>
+                    
                     <!-- AR scene code goes here -->
                   </body>
                 </html>
