@@ -220,24 +220,50 @@ To enable gesture detection and handling in the AR scene, you need to include th
 
 Step 1: Go to the following link: https://ar-js-org.github.io/AR.js-Docs/
 
+<img src="/images/1.png"  width=60% height=60%>
+
 Step 2: Choose the "Marker-based" option and click on "Start Building."
- 
+
+<img src="/images/2.png"  width=60% height=60%>
+
 Step 3: Upload an image of the marker you want to use, and make sure to download it for future reference.
- 
+
+<img src="/images/3.png"  width=60% height=60%>
+
 Step 4: Choose the content that you want your marker to display.
- 
-Step 5: Download the package. 
+
+<img src="/images/4.png"  width=60% height=60%>
+
+Step 5: Download the package.
+
+<img src="/images/5.png"  width=60% height=60%>
 
 Step 6: Export your project to GitHub so that you can use it on other platforms with GitHub Pages. Make sure that the main HTML file is named "index.html." 
 
+<img src="/images/6.png"  width=75% height=75%>
+
 Step 7: Go to "Settings" in the top right of the repository.
- 
+
+<img src="/images/7.png"  width=75% height=75%>
+
 Step 8: Click on the "Pages" tab.
+
+<img src="/images/8.png"  width=75% height=75%>
  
 Step 9: Choose the main branch in the branch options and click on "Save."
  
+<img src="/images/9.png"  width=75% height=75%>
+ 
 Step 10: Choose a custom domain name and click on "Save."
+ 
+<img src="/images/10.png"  width=75% height=75%>
  
 Step 11: Click on the generated link to access the website.
  
+<img src="/images/11.png"  width=75% height=75%>
+ 
 Step 12: Log in to GitHub from other platforms and navigate to the generated link above. Display the downloaded marker in front of your camera to see the results.
+ 
+<img src="/images/12-1.gif"  width=20% height=20%>
+
+<img src="/images/12-2.png"  width=20% height=20%>
