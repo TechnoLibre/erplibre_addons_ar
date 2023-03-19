@@ -266,4 +266,4 @@ Step 12: Log in to GitHub from other platforms and navigate to the generated lin
  
 <img src="/images/12-1.gif"  width=20% height=20%>
 
-<img src="/images/12-2.png"  width=20% height=20%>
+<img src="/images/12-32.png"  width=20% height=20%>
