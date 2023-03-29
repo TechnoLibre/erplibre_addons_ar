@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
 
+  
   // Check if the browser supports mediaDevices and getUserMedia
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Request access to the user's webcam
