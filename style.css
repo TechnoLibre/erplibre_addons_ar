@@ -1,5 +1,6 @@
 /* CSS rule for the canvas element */
 #canvas {
+  
   /* Set the position property to absolute, which allows precise positioning */
   position: absolute;
   /* Set the top and left properties to 0, placing the canvas in the top-left corner of the containing element */
